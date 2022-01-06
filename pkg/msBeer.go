@@ -20,6 +20,6 @@ type BeerBox struct {
 type Repository interface {
 	FetchBeers(ctx context.Context) ([]Beer, error)
 	CreateBeer(ctx context.Context, b *Beer) error
-	FetchBeerByID(ctx context.Context, ID string) (*Beer, error)
-	FetchBoxPriceByID(ctx context.Context, ID string) (int, error)
+	FetchBeerByID(ctx context.Context, ID int) (*Beer, error)
+	FetchBoxPriceByID(ctx context.Context, ID int) (int, error)
 }
