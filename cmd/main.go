@@ -11,16 +11,9 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	err := godotenv.Load("../.env")
-
-	if err != nil {
-		log.Fatalf("Error loading .env file, error:", err)
-	}
 	var (
 		hostName, _     = os.Hostname()
 		defaultServerID = fmt.Sprintf("%s-%s", os.Getenv("API_NAME"), hostName)
