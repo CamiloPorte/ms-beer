@@ -17,9 +17,19 @@ type BeerBox struct {
 	TotalPrice float32 `json:"price_total"`
 }
 
+type FetchAnswer struct {
+	Beers []Beer `json:"beers"`
+}
+
+type FetchByIdAnswer struct {
+	BeerByID Beer `json:"beer"`
+}
+
+type PriceByBox struct {
+	PriceBox BeerBox `json:"BeerBox"`
+}
 type Repository interface {
 	FetchBeers(ctx context.Context) ([]Beer, error)
-	CreateBeer(ctx context.Context, b *Beer) error
+	CreateBeer(ctx context.Context, b *Beer) (bool, error)
 	FetchBeerByID(ctx context.Context, ID int) (*Beer, error)
-	FetchBoxPriceByID(ctx context.Context, ID int) (int, error)
 }
