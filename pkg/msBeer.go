@@ -28,6 +28,8 @@ type FetchByIdAnswer struct {
 type PriceByBox struct {
 	PriceBox BeerBox `json:"BeerBox"`
 }
+
+//Se añade interfaces para simular el funcionamiento del almacenamiento del sistema.
 type Repository interface {
 	FetchBeers(ctx context.Context) ([]Beer, error)
 	CreateBeer(ctx context.Context, b *Beer) (bool, error)
